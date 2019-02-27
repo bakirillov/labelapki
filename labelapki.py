@@ -21,7 +21,7 @@ class App():
         self.font = pygame.font.SysFont("freeserif", 18)
         self.folder = input_folder
         self.output_fn = output_fn
-        self.screen = pygame.display.set_mode((1280, 640))
+        self.screen = pygame.display.set_mode((1280, 800))
         self.mouse_pressed = []
         self.current_img_boundaries = None
         self.keyboard = {
@@ -81,6 +81,19 @@ class App():
         """
         image = pygame.image.load(img)
         self.current_img_boundaries = image.get_rect()
+        width = self.current_img_boundaries[2]
+        height = self.current_img_boundaries[3]
+        if width > 800 or height > 1000:
+            largest = np.max([width, height])
+            if largest == width:
+                width = 800
+                k = width/800
+                height = height*k
+            else:
+                height = 1000
+                k = height/1000
+                width = width*k
+            image = pygame.transform.scale(image, (int(width), int(height)))
         self.screen.blit(image, self.current_img_boundaries)
         
     def plot_bbox(self, x1, y1, x2, y2, color=(200,100,0)):
@@ -113,11 +126,11 @@ class App():
             "Clear": (self.font.render("      Clear", True, (0,100,0)), (865, 50)),
             "Done&Next": (self.font.render("Done&Next", True, (0,100,0)), (975, 50))
         }
-        current_X = 800
+        current_X = 850
         current_Y = 160
         for a in range(self.number):
             if current_X > 1220:
-                current_X = 800
+                current_X = 850
                 current_Y += 100
             caption = "Assign "+str(a)
             self.buttons[caption] = (
@@ -141,7 +154,7 @@ class App():
                 self.mouse_pressed[1][1],
             )
         text = self.font.render(self.action_label, True, (255,255,255))
-        self.screen.blit(text, (1000, 610))
+        self.screen.blit(text, (950, 750))
         
     def clear(self):
         """Restart everything"""
