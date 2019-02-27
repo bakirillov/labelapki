@@ -1,7 +1,7 @@
 # labelapki
 Pygame-based image annotation tool for YOLO
 
-`usage: labelapki.py [-h] Folder File labels
+`usage: labelapki.py [-h] Folder File labels`
 
 Labelapki - immersive pygame-based image labelling tool
 
@@ -11,4 +11,4 @@ positional arguments:
   labels      Number of possible labels
 
 optional arguments:
-  -h, --help  show this help message and exit`
+  -h, --help  show this help message and exit
