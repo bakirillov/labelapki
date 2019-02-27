@@ -11,5 +11,4 @@ positional arguments:
   labels      Number of possible labels
 
 optional arguments:
-  -h, --help  show this help message and exit
-`
+  -h, --help  show this help message and exit`
