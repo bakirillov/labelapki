@@ -1,6 +1,8 @@
 # labelapki
 Pygame-based image annotation tool for YOLO
 
+![alt text](https://github.com/bakirillov/labelapki/blob/master/interface.png "Interface")
+
 `usage: labelapki.py [-h] Folder File labels`  
 `Labelapki - immersive pygame-based image labelling tool`   
 `positional arguments:`   

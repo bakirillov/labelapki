@@ -229,7 +229,7 @@ class App():
                             elif a == "Done&Next":
                                 self.done_and_next()
                             elif "Assign" in a:
-                                lbl = int(self.keyboard[event.key].split(" ")[-1])
+                                lbl = int(a.split(" ")[-1])
                                 if lbl < self.number:
                                     self.assign(lbl)
             self.screen.fill((0,0,0))
