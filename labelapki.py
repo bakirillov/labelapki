@@ -83,17 +83,19 @@ class App():
         self.current_img_boundaries = image.get_rect()
         width = self.current_img_boundaries[2]
         height = self.current_img_boundaries[3]
+        largest = np.max([width, height])
         if width > 800 or height > 1000:
-            largest = np.max([width, height])
             if largest == width:
+                k = 800/width
                 width = 800
-                k = width/800
                 height = height*k
             else:
                 height = 1000
-                k = height/1000
+                k = 1000/height
                 width = width*k
             image = pygame.transform.scale(image, (int(width), int(height)))
+        if width > 800 or height > 1000:
+            image = pygame.transform.scale(image, (800, 1000))
         self.screen.blit(image, self.current_img_boundaries)
         
     def plot_bbox(self, x1, y1, x2, y2, color=(200,100,0)):
